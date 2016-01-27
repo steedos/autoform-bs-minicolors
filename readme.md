@@ -48,6 +48,23 @@ Or on the `afFieldInput` component or any component that passes along attributes
 {{> afFieldInput name="typeTest" type="bootstrap-minicolors"}}
 ```
 
+## Minicolor Options
+
+You can use custom (minicolor)[http://labs.abeautifulsite.net/jquery-minicolors/] options:
+
+```
+  autoform: {
+    type: 'bootstrap-minicolors'
+    afFieldInput: {
+      minicolorsOptions: {
+        changeDelay: 1000,
+        animationSpeed: 0,
+        etc: 'many more options'
+      }
+    }
+  }
+```
+
 ## Automatic Type Conversions
 
 This input type is intended to be used with `type: String` schema keys.
