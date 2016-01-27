@@ -50,7 +50,7 @@ Or on the `afFieldInput` component or any component that passes along attributes
 
 ## Minicolor Options
 
-You can use custom (minicolor)[http://labs.abeautifulsite.net/jquery-minicolors/] options:
+You can use custom [minicolor](http://labs.abeautifulsite.net/jquery-minicolors/) options:
 
 ```
   autoform: {
