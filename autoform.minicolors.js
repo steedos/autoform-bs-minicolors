@@ -49,10 +49,25 @@ AutoForm.addInputType("bootstrap-minicolors", {
   },
 });
 
+Template.afBootstrapMinicolors.helpers({
+  atts: function () {
+    var atts = _.clone(this.atts);
+    atts = AutoForm.Utility.addClass(atts, "form-control");
+    delete atts.minicolorsOptions;
+    return atts;
+  }
+});
+
 Template.afBootstrapMinicolors.rendered = function(){
   var input = this.$('input');
-  input.minicolors({theme: 'bootstrap'});
+  var options = {theme: 'bootstrap'};
+  if (this.data.atts.minicolorsOptions) {
+    _.extend(options, this.data.atts.minicolorsOptions);
+  }
+  input.minicolors(options);
 };
 
-
-
+Template.afBootstrapMinicolors.destroyed = function () {
+  var input = this.$('input');
+  input.minicolors('destroy');
+};
