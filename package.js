@@ -11,7 +11,7 @@ Package.onUse(function(api) {
   api.use('aldeed:autoform@4.0.0 || 5.0.0');
   api.addFiles('jquery.minicolors.js', "client");
   api.addFiles('jquery.minicolors.css', "client");
-  api.addFiles('public/jquery.minicolors.png', "client");
+  api.addAssets('public/jquery.minicolors.png', "client");
   api.addFiles('autoform.bootstrap.minicolors.html', "client");
   api.addFiles('autoform.minicolors.js', "client");
 });
