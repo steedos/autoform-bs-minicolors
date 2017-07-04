@@ -312,22 +312,31 @@
     }
 
     // Moves the selected picker
+    // 当minicolor控件在modal中并且body的zoom的值为1.2时，需要添加extraX,extraY作为额外偏移量
     function move(target, event, animate) {
-
+        var extraX = 0;
+        var extraX = 0;
+        if (target.closest(".modal").length){
+            if(Number($("body").css("zoom"))==1.2){
+                extraX = 27;
+                extraY = 14;
+            }else{
+                extraY = 0;
+            }
+        }
         var input = target.parents('.minicolors').find('.minicolors-input'),
             settings = input.data('minicolors-settings'),
             picker = target.find('[class$=-picker]'),
             offsetX = target.offset().left,
             offsetY = target.offset().top,
-            x = Math.round(event.pageX - offsetX),
-            y = Math.round(event.pageY - offsetY),
+            x = Math.round(event.pageX/Number($("body").css("zoom")) - offsetX + extraX),
+            y = Math.round(event.pageY/Number($("body").css("zoom")) - offsetY + extraY),
             duration = animate ? settings.animationSpeed : 0,
             wx, wy, r, phi;
-
         // Touch support
         if( event.originalEvent.changedTouches ) {
-            x = event.originalEvent.changedTouches[0].pageX - offsetX;
-            y = event.originalEvent.changedTouches[0].pageY - offsetY;
+            x = event.originalEvent.changedTouches[0].pageX/Number($("body").css("zoom")) - offsetX;
+            y = event.originalEvent.changedTouches[0].pageY/Number($("body").css("zoom")) - offsetY;
         }
 
         // Constrain picker to its container

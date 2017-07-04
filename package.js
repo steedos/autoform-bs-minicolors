@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'hausor:autoform-bs-minicolors',
+  name: 'steedos:autoform-bs-minicolors',
   summary: 'Custom bootstrap-minicolors input type for AutoForm',
   version: '1.0.0',
   git: 'https://github.com/Hausor/autoform-bs-minicolors'
@@ -18,7 +18,7 @@ Package.onUse(function(api) {
 
 Package.onTest(function(api) {
   api.use(['mike:mocha-package', 'practicalmeteor:chai']);
-  api.use('hausor:autoform-bs-minicolors');
+  api.use('steedos:autoform-bs-minicolors');
   api.use('coffeescript');
   api.use('templating@1.0.0');
   api.use('blaze@2.0.0');
